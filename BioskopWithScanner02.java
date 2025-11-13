@@ -27,9 +27,7 @@ public class BioskopWithScanner02 {
                 kolom = sc.nextInt();
                 sc.nextLine();
 
-                if (baris < 1 || baris > 4|| kolom < 1 || kolom > 2) {
-                    System.out.println("Posisi tidak ada");
-                } else if (penonton [baris -1][kolom-1] != null) {
+                if (penonton [baris -1][kolom-1] != null) {
                     System.out.println("Kursi sudah ditempati");
                 } else {
                     penonton[baris - 1][kolom - 1] = nama;
