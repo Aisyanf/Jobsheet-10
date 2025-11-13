@@ -21,20 +21,28 @@ public class BioskopWithScanner02 {
             if (menu == 1) {
                 System.out.print("Masukkan nama : ");
                 nama = sc.nextLine();
-                System.out.print("Masukkan baris : ");
-                baris = sc.nextInt();
-                System.out.print("Masukkan kolom : ");
-                kolom = sc.nextInt();
-                sc.nextLine();
 
-                if (baris < 1 || baris > 4 || kolom < 1 || kolom > 2) {
-                    System.out.println("Posisi tidak ada");
-                } else if (penonton[baris - 1][kolom - 1] != null) {
-                    System.out.println("Kursi sudah ditempati");
-                } else {
-                    penonton[baris - 1][kolom - 1] = nama;
-                    System.out.println("Data penonton berhasil dan akan disimpan");
-                }
+                while (true) {
+                    System.out.print("Masukkan baris : ");
+                    baris = sc.nextInt();
+                    System.out.print("Masukkan kolom : ");
+                    kolom = sc.nextInt();
+                    sc.nextLine();
+
+                    if (baris < 1 || baris > 4 || kolom < 1 || kolom > 2) {
+                        System.out.println("Posisi tidak valid! Input kembali baris dan kolom");
+                        continue;
+                    }
+
+                    if (penonton[baris - 1][kolom - 1] != null) {
+                        System.out.println("Kursi sudah ditempati, silakan pilih kursi lain!");
+                    } else {
+                        penonton[baris - 1][kolom - 1] = nama;
+                        System.out.println("Data penonton berhasil disimpan");
+                        break; 
+                    }
+                } 
+
             } else if (menu == 2) {
                 System.out.println("\n--- DAFTAR PENONTON ---");
                 System.out.println("Berikut merupakan daftar penonton menurut baris dan kolom!");
@@ -49,10 +57,10 @@ public class BioskopWithScanner02 {
             } else if (menu == 3) {
                 System.out.println("Terima kasih, program selesai.");
                 break;
+
             } else {
                 System.out.println("Invalid");
             }
         }
     }
-
 }
