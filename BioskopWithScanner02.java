@@ -7,7 +7,7 @@ public class BioskopWithScanner02 {
         int baris, kolom, menu;
         String nama;
 
-        String [] [] penonton = new String [4] [2];
+        String[][] penonton = new String[4][2];
 
         while (true) {
             System.out.println("\n--- MENU BIOSKOP ---");
@@ -27,7 +27,9 @@ public class BioskopWithScanner02 {
                 kolom = sc.nextInt();
                 sc.nextLine();
 
-                if (penonton [baris -1][kolom-1] != null) {
+                if (baris < 1 || baris > 4 || kolom < 1 || kolom > 2) {
+                    System.out.println("Posisi tidak ada");
+                } else if (penonton[baris - 1][kolom - 1] != null) {
                     System.out.println("Kursi sudah ditempati");
                 } else {
                     penonton[baris - 1][kolom - 1] = nama;
@@ -52,5 +54,5 @@ public class BioskopWithScanner02 {
             }
         }
     }
-    
+
 }
